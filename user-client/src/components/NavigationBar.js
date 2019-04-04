@@ -6,12 +6,16 @@ import {
   Collapse,
   NavItem,
   NavLink,
-  Nav
+  Nav,
+  Button
 } from "reactstrap";
 import { NavLink as RouterNavLink } from "react-router-dom";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const logout = () => {
+    localStorage.removeItem("token");
+  };
   return (
     <Navbar color="light" light expand="md">
       <NavbarBrand href="/">WebAuth IV</NavbarBrand>
@@ -31,6 +35,11 @@ const NavigationBar = () => {
           <NavItem>
             <NavLink to="/users" tag={RouterNavLink}>
               Users
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/" tag={RouterNavLink} onClick={logout}>
+              Logout
             </NavLink>
           </NavItem>
         </Nav>
