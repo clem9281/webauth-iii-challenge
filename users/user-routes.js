@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../users/user-model");
 
 router.route("/").get(async (req, res) => {
+  console.log(req.decodedJwt);
   try {
     const users = await db.find();
     const usersWithoutPasswords = users.map(user => ({

@@ -20,6 +20,7 @@ const Login = props => {
       );
       localStorage.setItem("token", response.data.token);
       setUserInfo({ username: "", password: "" });
+      props.history.push("/users");
     } catch (error) {
       console.error("LOGIN ERROR", error);
     }
