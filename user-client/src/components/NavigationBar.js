@@ -9,7 +9,7 @@ import {
   Nav,
   Button
 } from "reactstrap";
-import { NavLink as RouterNavLink } from "react-router-dom";
+import { NavLink as RouterNavLink, Link } from "react-router-dom";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,7 @@ const NavigationBar = () => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/" tag={RouterNavLink} onClick={logout}>
+            <NavLink to="/" tag={Link} onClick={logout}>
               Logout
             </NavLink>
           </NavItem>

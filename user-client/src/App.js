@@ -21,7 +21,7 @@ class App extends Component {
             >
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
-              <Route path="/users" component={Users} />
+              <Route path="/" exact component={Users} />
             </Col>
           </Row>
         </Container>

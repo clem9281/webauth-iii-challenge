@@ -20,6 +20,7 @@ const SignUp = props => {
         userInfo
       );
       setUserInfo({ username: "", password: "", department: "" });
+      props.history.push("/login");
     } catch (error) {
       console.error("SIGN UP ERROR", error);
     }
