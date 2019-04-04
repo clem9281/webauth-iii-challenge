@@ -6,8 +6,7 @@ import {
   Collapse,
   NavItem,
   NavLink,
-  Nav,
-  Button
+  Nav
 } from "reactstrap";
 import { NavLink as RouterNavLink, Link } from "react-router-dom";
 
@@ -33,7 +32,7 @@ const NavigationBar = () => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/users" tag={RouterNavLink}>
+            <NavLink to="/" tag={RouterNavLink}>
               Users
             </NavLink>
           </NavItem>
