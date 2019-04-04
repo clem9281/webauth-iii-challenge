@@ -19,7 +19,7 @@ const SignUp = props => {
         "http://localhost:6500/api/auth/register",
         userInfo
       );
-      console.log(newUser);
+      setUserInfo({ username: "", password: "", department: "" });
     } catch (error) {
       console.error("SIGN UP ERROR", error);
     }

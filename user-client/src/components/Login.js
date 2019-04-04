@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import axios from "axios";
 
 const Login = props => {
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    password: ""
+  });
+  const { username, password } = userInfo;
+  const handleChange = e => {
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async e => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:6500/api/auth/login",
+        userInfo
+      );
+      localStorage.setItem("token", response.data.token);
+      setUserInfo({ username: "", password: "" });
+    } catch (error) {
+      console.error("LOGIN ERROR", error);
+    }
+  };
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <h2 className="mt-3 text-center">Login</h2>
       <FormGroup>
         <Label for="username">Email</Label>
@@ -12,6 +34,8 @@ const Login = props => {
           name="username"
           id="username"
           placeholder="Username"
+          value={username}
+          onChange={handleChange}
         />
       </FormGroup>
       <FormGroup>
@@ -21,6 +45,8 @@ const Login = props => {
           name="password"
           id="password"
           placeholder="Password"
+          value={password}
+          onChange={handleChange}
         />
       </FormGroup>
       <Button className="d-block mx-auto" color="primary">
